@@ -1,18 +1,18 @@
 from typing import List
 
-def productExceptSelf(nums):
+def productExceptSelf(nums: List[int]) -> List[int]:
     n = len(nums)
     res = [1] * n
 
-    prefix = 1
+    left_product = 1
     for i in range(n):
-        res[i] = prefix
-        prefix *= nums[i]
+        res[i] = left_product
+        left_product *= nums[i]
 
-    suffix = 1
+    right_product = 1
     for i in range(n - 1, -1, -1):
-        res[i] *= suffix
-        suffix *= nums[i]
+        res[i] *= right_product
+        right_product *= nums[i]
 
     return res
 

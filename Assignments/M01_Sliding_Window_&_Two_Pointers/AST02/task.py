@@ -1,5 +1,6 @@
-def Check_Palindrome(n: int,s:str) -> bool:
-   def is_palindrome(left: int, right: int) -> bool:
+#Tasks
+def Check_Palindrome(n: int, s: str) -> bool:
+    def is_palindrome(left: int, right: int) -> bool:
         while left < right:
             if s[left] != s[right]:
                 return False
@@ -7,24 +8,21 @@ def Check_Palindrome(n: int,s:str) -> bool:
             right -= 1
         return True
 
-   left = 0
-   right = n - 1
+    left, right = 0, n - 1
 
-   while left < right:
+    while left < right:
         if s[left] != s[right]:
-            # Delete either the left or right character
             return (
                 is_palindrome(left + 1, right)
                 or is_palindrome(left, right - 1)
             )
-
         left += 1
         right -= 1
 
-   return True
+    return True
 
 
 if __name__ == '__main__':
-   n = int(input())
-   s = input()
-   print(Check_Palindrome(n,s))
+    n = int(input())
+    s = input()
+    print(Check_Palindrome(n, s))

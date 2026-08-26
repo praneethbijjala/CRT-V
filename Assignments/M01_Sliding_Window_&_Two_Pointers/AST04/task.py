@@ -4,20 +4,20 @@ def pairInSortedRotated(arr, target):
     if n < 2:
         return False
 
-    smallest = 0
+    pivot = 0
     for i in range(1, n):
-        if arr[i] < arr[smallest]:
-            smallest = i
+        if arr[i] < arr[pivot]:
+            pivot = i
 
-    low = smallest
-    high = (smallest - 1 + n) % n
+    low = pivot
+    high = (pivot - 1 + n) % n
 
     while low != high:
-        current_sum = arr[low] + arr[high]
+        total = arr[low] + arr[high]
 
-        if current_sum == target:
+        if total == target:
             return True
-        elif current_sum < target:
+        elif total < target:
             low = (low + 1) % n
         else:
             high = (high - 1 + n) % n
